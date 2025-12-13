@@ -1,0 +1,8 @@
+id1
+build
+CMakeLists.txt.user
+tools/q1pak/q1pak.pro.user
+tools/q1pak/build
+tools/q1map/q1map.pro.user
+tools/q1map/build
+.qtcreator
