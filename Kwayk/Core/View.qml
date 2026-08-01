@@ -102,8 +102,12 @@ View3D {
         ambientColor: Qt.rgba(1.0, 0.9, 0.9, 1.0)
         castsShadow: false
         shadowFactor: 100
-        pcfFactor: 0.01
+        use32BitShadowmap: true
         shadowBias: 0.1
+        softShadowQuality: Light.PCF16
+        pcfFactor: 0.02
+        csmNumSplits: 2
+        csmBlendRatio: 0.15
     }
 
     Loader3D {

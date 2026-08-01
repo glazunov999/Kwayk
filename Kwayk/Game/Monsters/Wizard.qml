@@ -85,20 +85,16 @@ Monster {
     th_pain: wiz_pain
     th_die: wiz_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/wizard.mdl"
-            skin.source: "qrc:/Assets/progs/skins/wizard.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/wizard.mdl"
+        skin.source: "qrc:/Assets/progs/skins/wizard.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_wizard.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_wizard.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_wizard.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_wizard.png"
+        active: false
     }
 
     Sound {

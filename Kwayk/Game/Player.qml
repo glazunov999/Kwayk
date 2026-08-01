@@ -91,12 +91,10 @@ Walker {
     th_pain: player_pain
     th_die: playerDie
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_player.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_player.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_player.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_player.png"
+        active: false
     }
 
     Component.onCompleted: {
@@ -1077,6 +1075,8 @@ Walker {
 
         if (trace?.body && trace.body.ent.takedamage) {
             weapons.spawnBlood(org, Qt.vector3d(0, 0, 0), 20);
+            if (typeof trace.body.ent.applyHit === "function")
+                trace.body.ent.applyHit(forward, 20, org)
             weapons.t_damage(trace.body.ent, self, self, 20);
         } else {
             axhit2Sound.play();

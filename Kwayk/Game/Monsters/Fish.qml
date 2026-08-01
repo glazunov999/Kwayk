@@ -94,12 +94,10 @@ Monster {
     th_pain: fish_pain
     th_die: f_death1
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/fish.mdl"
-            skin.source: "qrc:/Assets/progs/skins/fish.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/fish.mdl"
+        skin.source: "qrc:/Assets/progs/skins/fish.png"
+        frame: th.frame
     }
 
     Sound {

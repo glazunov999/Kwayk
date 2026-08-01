@@ -18,6 +18,7 @@ Entity {
     property int worldtype: 0
 
     property var damage_attacker: null // set by T_Damage
+    property var damage_inflictor: null // set by T_Damage
     property var sight_entity: null
     property real sight_entity_time: 0
 

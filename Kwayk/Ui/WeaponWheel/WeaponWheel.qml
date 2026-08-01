@@ -6,7 +6,7 @@ import Kwayk.Game as G
 
 import "../Controls" as C
 import "../Sbar"
-import "../../js/vec.js" as Vec
+import "../../js/math.js" as M
 
 Item {
     id: root
@@ -224,7 +224,7 @@ Item {
             return;
 
         let angle = Math.atan2(pointer.y, pointer.x) * 180 / Math.PI + 90;
-        angle = Vec.anglemod(angle);
+        angle = M.anglemod(angle);
         const sectorSize = 360 / weaponModel.count;
 
         root.currentWeaponIndex = Math.round(angle / sectorSize) % weaponModel.count;

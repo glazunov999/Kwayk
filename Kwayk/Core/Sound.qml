@@ -14,6 +14,9 @@ Node {
     property real volume: 1.0
     property int attenuationType: 0
 
+    readonly property bool spatial: !!ent && ent.classname !== "player"
+    readonly property bool looping: loops < 0
+
     readonly property real attenuation: {
         if (!ent || ent.classname === "player" || attenuationType === 0)
             return 1.0;
@@ -24,112 +27,67 @@ Node {
     }
 
     onAttenuationChanged: {
-        if (!status.isPlaying)
-            return;
-
-        if (attenuation <= 0 && status.sound) {
-            status.sound.destroy();
-            status.sound = null;
-        } else if (attenuation > 0 && !status.sound) {
-            createSound();
-        }
+        if (status.playing && !status.slot && attenuation > 0)
+            acquire();
     }
 
-    Component {
-        id: spatialSoundComponent
-        SpatialSound {
-            distanceModel: SpatialSound.ManualAttenuation
-            distanceCutoff: 10000
-            manualAttenuation: root.attenuation
-            source: root.source
-            loops: root.loops
-            autoPlay: true
-
-            Timer {
-                interval: 1500
-                running: root.loops !== SpatialSound.Infinite
-                onTriggered: root.stop();
-            }
-        }
-    }
-
-    Component {
-        id: webSpatialSoundComponent
-        WebSpatialSound {
-            distanceModel: WebSpatialSound.ManualAttenuation
-            distanceCutoff: 10000
-            manualAttenuation: root.attenuation
-            source: root.source
-            loops: root.loops
-            autoPlay: true
-
-            Timer {
-                interval: 1500
-                running: root.loops !== WebSpatialSound.Infinite
-                onTriggered: root.stop();
-            }
-        }
-    }
-
-    Component {
-        id: ambientSoundComponent
-        AmbientSound {
-            source: root.source
-            loops: root.loops
-            autoPlay: true
-            volume: root.volume
-        }
-    }
-
-    Component {
-        id: webAmbientSoundComponent
-        WebAmbientSound {
-            source: root.source
-            loops: root.loops
-            autoPlay: true
-            volume: root.volume
-        }
+    onSourceChanged: {
+        if (status.playing)
+            play();
     }
 
     QtObject {
         id: status
-        property var sound: null
-        property bool isPlaying: false
+
+        property var slot: null
+        property bool playing: false
     }
 
-    function createSound() {
-        status.sound?.destroy();
-        status.sound = null;
+    Timer {
+        id: releaseTimer
+        interval: 500
+        running: status.playing && !!status.slot && root.attenuation <= 0
+        onTriggered: root.release()
+    }
 
-        if (attenuation <= 0)
-            return;
+    Timer {
+        id: oneShotTimer
+        interval: 1500
+        running: !!status.slot && !root.looping
+        onTriggered: root.stop()
+    }
 
-        if (ent && ent.classname !== "player") {
-            if (Qt.platform.os !== "wasm")
-                status.sound = spatialSoundComponent.createObject(view.scene);
-            else
-                status.sound = webSpatialSoundComponent.createObject(view.scene);
-            // convert to cm
-            status.sound.position = Qt.binding(function() {
-                return ent.position.times(100);
-            });
-        } else {
-            if (Qt.platform.os !== "wasm")
-                status.sound = ambientSoundComponent.createObject(view.scene);
-            else
-                status.sound = webAmbientSoundComponent.createObject(view.scene);
-        }
+    Timer {
+        id: retryTimer
+        interval: 1000
+        repeat: true
+        running: status.playing && !status.slot && root.looping && root.attenuation > 0
+        onTriggered: root.acquire()
+    }
+
+    function acquire() {
+        if (view?.scene)
+            status.slot = SoundPool.acquire(root, view.scene);
+    }
+
+    function release() {
+        SoundPool.release(status.slot, root);
+        status.slot = null;
+    }
+
+    function slotRevoked() {
+        status.slot = null;
     }
 
     function play() {
-        status.isPlaying = true;
-        createSound();
+        status.playing = true;
+        release();
+        acquire();
     }
 
     function stop() {
-        status.isPlaying = false;
-        status.sound?.destroy()
-        status.sound = null;
+        status.playing = false;
+        release();
     }
 
     Component.onCompleted: {

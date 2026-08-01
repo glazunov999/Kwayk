@@ -8,7 +8,6 @@ import Kwayk.Core
 import Kwayk.Game
 
 import "../js/math.js" as M
-import "../js/vec.js" as Vec
 
 Combat {
     id: root
@@ -58,8 +57,11 @@ Combat {
         const org = trace.position.minus(dir.times(0.04));
 
         if (trace?.body && trace.body.ent && trace.body.ent.takedamage) {
+            const ent = trace.body.ent
+            if (typeof ent.applyHit === "function")
+                ent.applyHit(dir, damage, org)
             spawnBlood(org, vel.times(0.2), damage)
-            addMultiDamage(trace.body.ent, damage);
+            addMultiDamage(ent, damage);
 
             const bloodTrace = physicsSystem.castRay(org, dir.times(1.2), Layers.BP_Solid, Layers.Solid, []);
             if (bloodTrace.fraction < 1.0)
@@ -89,7 +91,7 @@ Combat {
     function launch_spike(org, dir, vel, type) {
         const settings = {
             position: org,
-            eulerRotation: Vec.vectoangles(dir),
+            eulerRotation: M.vectoangles(dir),
             velocity: vel,
             type: type,
             owner: self,
@@ -103,7 +105,7 @@ Combat {
     function launchLaser(org, dir) {
         const settings = {
             position: org,
-            eulerRotation: Vec.vectoangles(dir),
+            eulerRotation: M.vectoangles(dir),
             velocity: dir.times(6),
             owner: self,
         }

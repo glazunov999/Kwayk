@@ -343,6 +343,9 @@ Item {
         case "sv_gravity":
             physicsSystem.gravity = Qt.vector3d(0, -vars.sv_gravity.value / 100, 0)
             break;
+        case "r_forcedebugdraw":
+            physicsSystem.forceDebugDraw = vars.r_forcedebugdraw.value != 0;
+            break;
         }
     }
 }

@@ -5,7 +5,6 @@ import Backend
 import Kwayk.Game
 import Kwayk.Core
 
-import "../../js/vec.js" as Vec
 
 Monster {
     id: root
@@ -137,20 +136,16 @@ Monster {
     th_pain: enf_pain
     th_die: enf_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/enforcer.mdl"
-            skin.source: "qrc:/Assets/progs/skins/enforcer.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/enforcer.mdl"
+        skin.source: "qrc:/Assets/progs/skins/enforcer.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_mega.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_mega.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_mega.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_mega.png"
+        active: false
     }
 
     Sound {

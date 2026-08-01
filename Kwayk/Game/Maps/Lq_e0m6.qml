@@ -1343,7 +1343,7 @@ World {
         target: "path2_c1"
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(14.08, -2.16, 11.2)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
@@ -1353,7 +1353,7 @@ World {
         eulerRotation: Qt.vector3d(0, -30, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(14.24, -2.16, 10.56)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
@@ -1363,7 +1363,7 @@ World {
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(9.28, -2.16, 11.2)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
@@ -1373,7 +1373,7 @@ World {
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(11.6, -1.92, 8.16)
         eulerRotation: Qt.vector3d(0, 180, 0)
     }
@@ -1494,7 +1494,7 @@ World {
         eulerRotation: Qt.vector3d(0, 0, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(16, -0.32, 7.03)
         eulerRotation: Qt.vector3d(0, 0, 0)
         spawnflags: 1
@@ -1559,7 +1559,7 @@ World {
         eulerRotation: Qt.vector3d(0, 30, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-12.44, -1.28, 15.16)
         eulerRotation: Qt.vector3d(0, 30, 0)
     }

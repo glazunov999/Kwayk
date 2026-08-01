@@ -65,6 +65,7 @@ Item {
     property var r_decals
     property var r_dynamicshadows
     property var r_shadowmapquality
+    property var r_forcedebugdraw
     property var v_width
     property var v_height
     property var v_fullscreen
@@ -115,25 +116,28 @@ Item {
         v_kickpitch = registerVariable("v_kickpitch", 0.6);
         v_kickroll = registerVariable("v_kickroll", 0.6);
         v_kicktime = registerVariable("v_kicktime", 0.5);
+        const wasm = Qt.platform.os === "wasm"
+
         r_brightness = registerVariable("r_brightness", 10)
         r_contrast = registerVariable("r_contrast", 10)
         r_saturation = registerVariable("r_saturation", 10)
         r_fov = registerVariable("r_fov", 75)
-        r_hdrbloomtonemap = registerVariable("r_hdrbloomtonemap", 1)
-        r_antialiasing = registerVariable("r_antialiasing", 1)
+        r_hdrbloomtonemap = registerVariable("r_hdrbloomtonemap", wasm ? 0 : 1)
+        r_antialiasing = registerVariable("r_antialiasing", wasm ? 0 : 1)
         r_antialiasingquality = registerVariable("r_antialiasingquality", 0)
-        r_fxaa = registerVariable("r_fxaa", 1)
-        r_ambientocclusion = registerVariable("r_ambientocclusion", 1)
-        r_depthoffield = registerVariable("r_depthoffield", 1)
-        r_teleporteffect = registerVariable("r_teleporteffect", 1)
-        r_transitioneffect = registerVariable("r_transitioneffect", 1)
-        r_dithering = registerVariable("r_dithering", 1)
-        r_fog = registerVariable("r_fog", 1)
-        r_decals = registerVariable("r_decals", 1)
-        r_dynamicshadows = registerVariable("r_dynamicshadows", 1)
-        r_shadowmapquality = registerVariable("r_shadowmapquality", 2)
-        v_width = registerVariable("v_width", 1024)
-        v_height = registerVariable("v_height", 768)
+        r_fxaa = registerVariable("r_fxaa", wasm ? 0 : 1)
+        r_ambientocclusion = registerVariable("r_ambientocclusion", wasm ? 0 : 1)
+        r_depthoffield = registerVariable("r_depthoffield", wasm ? 0 : 1)
+        r_teleporteffect = registerVariable("r_teleporteffect", wasm ? 0 : 1)
+        r_transitioneffect = registerVariable("r_transitioneffect", wasm ? 0 : 1)
+        r_dithering = registerVariable("r_dithering", wasm ? 0 : 1)
+        r_fog = registerVariable("r_fog", wasm ? 0 : 1)
+        r_decals = registerVariable("r_decals", wasm ? 0 : 1)
+        r_dynamicshadows = registerVariable("r_dynamicshadows", wasm ? 0 : 1)
+        r_shadowmapquality = registerVariable("r_shadowmapquality", wasm ? 0 : 2)
+        r_forcedebugdraw = registerVariable("r_forcedebugdraw", 0)
+        v_width = registerVariable("v_width", wasm ? 640 : 1024)
+        v_height = registerVariable("v_height", wasm ? 480 : 768)
         v_fullscreen = registerVariable("v_fullscreen", 0)
         snd_volume = registerVariable("snd_volume", 10)
     }

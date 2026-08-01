@@ -976,17 +976,17 @@ World {
 
     // monsters
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-1.68, 0.4, -6.72)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(1.68, 0.4, -6.72)
         eulerRotation: Qt.vector3d(0, 90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(4.47, 0.94, -21.44)
         eulerRotation: Qt.vector3d(0, 90, 0)
         spawnflags: 1
@@ -1042,7 +1042,7 @@ World {
         spawnflags: 256
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-4.79, 1.14, -21.12)
         eulerRotation: Qt.vector3d(0, -90, 0)
         spawnflags: 1
@@ -1091,43 +1091,43 @@ World {
         target: "shamblerpath3"
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-6.07, -7.44, -21.44)
         eulerRotation: Qt.vector3d(0, -90, 0)
         spawnflags: 1
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-15.36, -9.36, -24.96)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-14.56, -9.36, -25.6)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-13.76, -9.36, -17.44)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-12.48, -9.36, -17.92)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-9.12, -9.36, -17.28)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-10.08, -9.36, -25.76)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-9.76, -9.36, -24.96)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }

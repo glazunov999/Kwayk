@@ -32,6 +32,7 @@ Entity {
     property alias modelComponent: modelLoader.sourceComponent
     property Component headComponent: null
 
+    readonly property alias modelItem: modelLoader.item
     readonly property alias weapons: weapons
     readonly property alias updateSettings: updateSettings
     readonly property alias shape: shape
@@ -97,9 +98,9 @@ Entity {
         id: updateSettings;
         walkStairsStepUp: Qt.vector3d(0, 0.12, 0)
         stickToFloorStepDown: Qt.vector3d(0, -0.05, 0)
-        walkStairsMinStepForward: 0.02
-        walkStairsStepForwardTest: 0.15
-        walkStairsCosAngleForwardContact: Math.cos(Math.PI / 3)
+        walkStairsMinStepForward: 0.04
+        walkStairsStepForwardTest: 0.20
+        walkStairsCosAngleForwardContact: Math.cos(80 * Math.PI / 3)
     }
 
     RotatedTranslatedShape {
@@ -265,6 +266,7 @@ Entity {
 
     function walkerDead(dead) {
         deadBody?.destroy();
+        deadBody = null;
         if (dead) {
             deadBody = deadBodyComponent.createObject(root);
             takedamage = Defs.damageDead;

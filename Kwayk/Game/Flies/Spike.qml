@@ -38,8 +38,14 @@ Fly {
 
                 if (other.takedamage) {
                     const normal = worldSpaceNormal.times(-1);
-                    combat.spawn_touchblood(position, velocity, normal, type === 0 ? 9 : 18);
-                    combat.t_damage(other, self, owner, type === 0 ? 9 : 18);
+                    const spikeDamage = type === 0 ? 9 : 18;
+                    const spikeDir = velocity.length() > 1e-6
+                                   ? velocity.normalized()
+                                   : other.position.minus(owner.position)
+                    if (typeof other.applyHit === "function")
+                        other.applyHit(spikeDir, spikeDamage, position)
+                    combat.spawn_touchblood(position, velocity, normal, spikeDamage);
+                    combat.t_damage(other, self, owner, spikeDamage);
 
                     const dir = velocity.normalized();
                     const bloodTrace = physicsSystem.castRay(position, dir.times(1.2), Layers.BP_Solid, Layers.Solid, []);

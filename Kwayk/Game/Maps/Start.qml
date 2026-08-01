@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick3D
 import QtQuick3D.SpatialAudio
+import QtQuick3D.JoltPhysics
 
 import Kwayk.Game
 import Kwayk.Core
@@ -415,5 +416,4 @@ World {
         eulerRotation: Qt.vector3d(0, -90, 0)
         spawnflags: 1
     }
-
 }

@@ -3,7 +3,7 @@ import QtQuick3D
 
 import Kwayk.Game
 import Backend
-import "../js/vec.js" as Vec
+import "../js/math.js" as M
 
 QtObject {
     id: root
@@ -56,7 +56,7 @@ QtObject {
     }
 
     function facingIdeal() {
-        const delta = Vec.anglemod(eulerRotation.y - ideal_yaw);
+        const delta = M.anglemod(eulerRotation.y - ideal_yaw);
         if (delta > 45 && delta < 315)
             return false;
 
@@ -120,7 +120,7 @@ QtObject {
 
         enemy_infront = infront(enemy);
         enemy_range = range(enemy);
-        enemy_yaw = Vec.vectoyaw(enemy.position.minus(position));
+        enemy_yaw = M.vectoyaw(enemy.position.minus(position));
 
         if (attack_state === Defs.asMissile) {
             ai_run_missile();
@@ -172,7 +172,7 @@ QtObject {
     function huntTarget() {
         goalentity = enemy;
         th.think = th_run;
-        ideal_yaw = Vec.vectoyaw(enemy.position.minus(position));
+        ideal_yaw = M.vectoyaw(enemy.position.minus(position));
         th.nextthink = time + 0.1;
         attackFinished(1);
     }

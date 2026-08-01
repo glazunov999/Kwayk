@@ -1121,7 +1121,7 @@ World {
         eulerRotation: Qt.vector3d(0, 90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-21.75, 2.4, 0)
         eulerRotation: Qt.vector3d(0, -90, 0)
         spawnflags: 1
@@ -1204,7 +1204,7 @@ World {
         spawnflags: 256
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(15.84, -2.8, -5.12)
         eulerRotation: Qt.vector3d(0, 45, 0)
     }
@@ -1214,7 +1214,7 @@ World {
         eulerRotation: Qt.vector3d(0, 60, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(13.92, -2.8, -8.64)
         eulerRotation: Qt.vector3d(0, 105, 0)
     }
@@ -1407,7 +1407,7 @@ World {
         eulerRotation: Qt.vector3d(0, -90, 0)
     }
 
-    Zombie {
+    ZombieV2 {
         position: Qt.vector3d(-16.96, 1.04, -0.64)
         eulerRotation: Qt.vector3d(0, -90, 0)
     }

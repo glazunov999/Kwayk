@@ -171,7 +171,9 @@ Node {
     function pointContents(point) {
         const hits = physicsSystem.collidePoint(point, Layers.BP_NonSolid, Layers.NonSolid, []);
         for (let i = 0; i < hits.length; ++i) {
-            const hit = hits[i];
+            const hit = hits[i].body;
+            if (!hit)
+                continue;
             if (hit.objectName.startsWith("water"))
                 return Defs.contentsWater;
             if (hit.objectName.startsWith("slime"))

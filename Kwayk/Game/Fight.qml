@@ -3,13 +3,13 @@ import QtQuick3D
 
 import Backend
 import Kwayk.Game
-import "../js/vec.js" as Vec
+import "../js/math.js" as M
 
 QtObject {
     id: root
 
     function ai_face() {
-        ideal_yaw = Vec.vectoyaw(enemy.position.minus(position));
+        ideal_yaw = M.vectoyaw(enemy.position.minus(position));
         changeYaw();
     }
 
@@ -22,7 +22,7 @@ QtObject {
         ai_face();
 
         const dtemp = enemy.position.minus(right.times(0.3));
-        const heading = Vec.vectoyaw(dtemp.minus(position));
+        const heading = M.vectoyaw(dtemp.minus(position));
 
         walkmove(heading, 0.2);
     }

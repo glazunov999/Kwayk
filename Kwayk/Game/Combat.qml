@@ -78,6 +78,7 @@ Node {
             return;
 
         damage_attacker = attacker;
+        damage_inflictor = inflictor;
 
         // check for quad damage powerup on the attacker
         if (attacker.super_damage_finished > time)

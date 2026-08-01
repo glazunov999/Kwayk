@@ -1,5 +1,9 @@
 qt6_add_library(kwayk_core STATIC)
 
+set_source_files_properties(SoundPool.qml PROPERTIES
+    QT_QML_SINGLETON_TYPE TRUE
+)
+
 qt6_add_qml_module(kwayk_core
     URI "Kwayk.Core"
     VERSION 1.0
@@ -11,6 +15,7 @@ qt6_add_qml_module(kwayk_core
         Particles.qml
         PlayerController.qml
         Sound.qml
+        SoundPool.qml
         Vars.qml
         Effects/BlendEffect.qml
         Effects/TeleportEffect.qml

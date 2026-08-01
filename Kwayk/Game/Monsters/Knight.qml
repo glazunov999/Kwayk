@@ -129,20 +129,16 @@ Monster {
     th_pain: knight_pain
     th_die: knight_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/knight.mdl"
-            skin.source: "qrc:/Assets/progs/skins/knight.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/knight.mdl"
+        skin.source: "qrc:/Assets/progs/skins/knight.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_knight.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_knight.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_knight.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_knight.png"
+        active: false
     }
 
     Sound {

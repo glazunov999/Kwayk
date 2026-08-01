@@ -158,6 +158,7 @@ Item {
                 ui.processInput();
                 break;
             }
+            physics();
         }
     }
 
@@ -255,8 +256,6 @@ Item {
 
         playerController.processInput();
         ui.processInput();
-
-        physics();
     }
 
     Connections {

@@ -5,7 +5,7 @@ import QtQuick3D.JoltPhysics
 import Kwayk.Game
 import Kwayk.Core
 import Backend
-import "../js/vec.js" as Vec
+import "../js/math.js" as M
 
 Walker {
     id: root
@@ -289,7 +289,7 @@ Walker {
     function walkmonster_start_go() {
         takedamage = Defs.damageAim;
 
-        ideal_yaw = Vec.anglemod(eulerRotation.y);
+        ideal_yaw = M.anglemod(eulerRotation.y);
         angles = Qt.vector3d(eulerRotation.x, ideal_yaw, eulerRotation.z);
 
         if (target) {
@@ -300,7 +300,7 @@ Walker {
             }
 
             goalentity = movetarget = targets[0];
-            ideal_yaw = Vec.vectoyaw(goalentity.position.minus(root.position));
+            ideal_yaw = M.vectoyaw(goalentity.position.minus(root.position));
 
             if (movetarget.classname === "path_corner") {
                 th_walk();
@@ -328,7 +328,7 @@ Walker {
     function flymonster_start_go() {
         takedamage = Defs.damageAim;
 
-        ideal_yaw = Vec.anglemod(eulerRotation.y);
+        ideal_yaw = M.anglemod(eulerRotation.y);
         angles = Qt.vector3d(eulerRotation.x, ideal_yaw, eulerRotation.z);
 
         if (target) {
@@ -339,7 +339,7 @@ Walker {
             }
 
             goalentity = movetarget = targets[0];
-            ideal_yaw = Vec.vectoyaw(goalentity.position.minus(root.position));
+            ideal_yaw = M.vectoyaw(goalentity.position.minus(root.position));
 
             if (movetarget.classname === "path_corner") {
                 th_walk();
@@ -383,7 +383,7 @@ Walker {
     }
 
     function changeYaw() {
-        const currentAngle = Vec.anglemod(angles.y);
+        const currentAngle = M.anglemod(angles.y);
         const ideal = ideal_yaw;
 
         if (currentAngle === ideal)
@@ -409,7 +409,7 @@ Walker {
         currentAngles = Qt.vector3d(currentAngles.x, currentAngle + move, currentAngles.z);
         anglesLerpStart = time;
 
-        angles.y = Vec.anglemod(currentAngles.y);
+        angles.y = M.anglemod(currentAngles.y);
     }
 
     function stepDirection(yaw, dist) {
@@ -436,8 +436,8 @@ Walker {
     function newChaseDir(enemy, dist) {
         const DI_NODIR = -1;
 
-        const olddir = Vec.anglemod(Math.floor(ideal_yaw / 45) * 45);
-        const turnaround = Vec.anglemod(olddir - 180);
+        const olddir = M.anglemod(Math.floor(ideal_yaw / 45) * 45);
+        const turnaround = M.anglemod(olddir - 180);
 
         const deltax = enemy.position.x - position.x;
         const deltaz = enemy.position.z - position.z;

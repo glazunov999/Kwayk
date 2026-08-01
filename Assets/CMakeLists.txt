@@ -12,5 +12,6 @@ qt6_add_qml_module(kwayk_assets
 add_subdirectory(decals)
 add_subdirectory(images)
 add_subdirectory(maps)
+add_subdirectory(models)
 add_subdirectory(progs)
 add_subdirectory(sounds)

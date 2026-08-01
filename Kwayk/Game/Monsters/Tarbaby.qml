@@ -88,12 +88,10 @@ Monster {
     th_melee: tbaby_jump1
     th_die: tbaby_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/tarbaby.mdl"
-            skin.source: "qrc:/Assets/progs/skins/tarbaby.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/tarbaby.mdl"
+        skin.source: "qrc:/Assets/progs/skins/tarbaby.png"
+        frame: th.frame
     }
 
     Sound {

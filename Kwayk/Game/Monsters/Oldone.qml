@@ -91,12 +91,10 @@ Monster {
     th_pain: nopain
     th_die: finale_1
     
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/oldone.mdl"
-            skin.source: "qrc:/Assets/progs/skins/oldone.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/oldone.mdl"
+        skin.source: "qrc:/Assets/progs/skins/oldone.png"
+        frame: th.frame
     }
 
     Component.onCompleted: {

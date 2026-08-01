@@ -4,7 +4,7 @@ import QtQuick3D.JoltPhysics
 
 import Kwayk.Game
 import Backend
-import "../../js/vec.js" as Vec
+import "../../js/math.js" as M
 
 Trigger {
     id: root
@@ -47,6 +47,6 @@ Trigger {
         other.movetarget = nextCorner;
 
         const dir = nextCorner.position.minus(other.position);
-        other.ideal_yaw = Vec.vectoyaw(dir);
+        other.ideal_yaw = M.vectoyaw(dir);
     }
 }

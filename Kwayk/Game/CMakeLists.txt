@@ -101,6 +101,9 @@ qt6_add_qml_module(kwayk_game
         Monsters/Tarbaby.qml
         Monsters/Wizard.qml
         Monsters/Zombie.qml
+        Monsters/ZombieV2/ZombieV2.qml
+        Monsters/ZombieV2/ZombieV2Model.qml
+        Monsters/ZombieV2/ZombieV2Ragdoll.qml
         Plats/Plat.qml
         Plats/Train.qml
         Player.qml

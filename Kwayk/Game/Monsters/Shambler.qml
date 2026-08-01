@@ -134,20 +134,16 @@ Monster {
     th_pain: sham_pain
     th_die: sham_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/shambler.mdl"
-            skin.source: "qrc:/Assets/progs/skins/shambler.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/shambler.mdl"
+        skin.source: "qrc:/Assets/progs/skins/shambler.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_shams.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_shams.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_shams.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_shams.png"
+        active: false
     }
 
     Sound {

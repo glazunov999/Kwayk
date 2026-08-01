@@ -228,20 +228,16 @@ Monster {
     th_pain: zombie_pain
     th_die: zombie_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/zombie.mdl"
-            skin.source: "qrc:/Assets/progs/skins/zombie.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/zombie.mdl"
+        skin.source: "qrc:/Assets/progs/skins/zombie.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_zombie.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_zombie.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_zombie.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_zombie.png"
+        active: false
     }
 
     Sound {
@@ -386,14 +382,14 @@ Monster {
     function zombieFireGrenade(st) {
         shot1Sound.play();
 
-        const org = position.plus(forward.times(st.x)).plus(right.times(z)).plus(up.times(y - 0.24))
+        const org = position.plus(forward.times(st.x)).plus(up.times(st.y - 0.24)).plus(right.times(st.z))
 
-        let velocity = enemy.position.minus(position).normalized();
+        let velocity = enemy.position.minus(org).normalized();
         velocity = velocity.times(6);
         velocity.y = 2;
 
         const settings = {
-            position: position,
+            position: org,
             velocity: velocity,
             avelocity: Qt.vector3d(30, 10, 20),
             owner: self
@@ -443,7 +439,7 @@ Monster {
     function zombie_attc9() { th.nextFrame(attc9, zombie_attc10); fight.ai_face(); }
     function zombie_attc10() { th.nextFrame(attc10, zombie_attc11); fight.ai_face(); }
     function zombie_attc11() { th.nextFrame(attc11, zombie_attc12); fight.ai_face(); }
-    function zombie_attc12() { th.nextFrame(attc12, zombie_run1); fight.ai_face(); zombieFireGrenade(Qt.vector3d(-0.10, 0.29, 0.19)); }
+    function zombie_attc12() { th.nextFrame(attc12, zombie_run1); fight.ai_face(); zombieFireGrenade(Qt.vector3d(-0.12, 0.29, 0.19)); }
 
     function zombie_missile() {
         const r = Math.random();

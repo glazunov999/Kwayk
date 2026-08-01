@@ -5,7 +5,7 @@ import Backend
 import Kwayk.Game
 import Kwayk.Core
 
-import "../../js/vec.js" as Vec
+import "../../js/math.js" as M
 
 Monster {
     id: root
@@ -138,14 +138,12 @@ Monster {
 
     readonly property var lavaballComponent: Qt.createComponent("../Flies/BossLavaball.qml")
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/boss.mdl"
-            skin.source: "qrc:/Assets/progs/skins/boss.png"
-            frame: th.frame
-            emissiveIntensity: 2
-            emissiveColor: "#ff2200"
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/boss.mdl"
+        skin.source: "qrc:/Assets/progs/skins/boss.png"
+        frame: th.frame
+        emissiveIntensity: 2
+        emissiveColor: "#ff2200"
     }
 
     Sound {
@@ -319,7 +317,7 @@ Monster {
     }
 
     function boss_missile(p) {
-        const offang = Vec.vectoangles(enemy.position.minus(position));
+        const offang = M.vectoangles(enemy.position.minus(position));
 
         const org = position.plus(forward.times(p.x)).plus(right.times(p.y)).plus(Qt.vector3d(0, p.z, 0));
 

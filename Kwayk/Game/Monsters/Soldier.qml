@@ -146,20 +146,16 @@ Monster {
     th_pain: army_pain
     th_die: army_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/soldier.mdl"
-            skin.source: "qrc:/Assets/progs/skins/soldier.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/soldier.mdl"
+        skin.source: "qrc:/Assets/progs/skins/soldier.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_guard.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_guard.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_guard.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_guard.png"
+        active: false
     }
 
     Sound {

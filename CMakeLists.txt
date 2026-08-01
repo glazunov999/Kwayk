@@ -58,6 +58,7 @@ target_link_libraries(appKwayk PRIVATE
     kwayk_assets_maps_lq_e0m7plugin
     kwayk_assets_maps_lq_e0m8plugin
     kwayk_assets_maps_startplugin
+    kwayk_assets_models_zombieplugin
     kwayk_assets_progsplugin
     kwayk_assets_soundsplugin
     kwayk_assetsplugin

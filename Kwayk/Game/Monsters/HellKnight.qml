@@ -5,7 +5,7 @@ import Backend
 import Kwayk.Game
 import Kwayk.Core
 
-import "../../js/vec.js" as Vec
+import "../../js/math.js" as M
 
 Monster {
     id: root
@@ -205,20 +205,16 @@ Monster {
     th_pain: hknight_pain
     th_die: hknight_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/hknight.mdl"
-            skin.source: "qrc:/Assets/progs/skins/hknight.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/hknight.mdl"
+        skin.source: "qrc:/Assets/progs/skins/hknight.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_hellkn.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_hellkn.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_hellkn.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_hellkn.png"
+        active: false
     }
 
     Sound {
@@ -289,10 +285,10 @@ Monster {
     }
 
     function hknight_shot(offset) {
-        const offang = Vec.vectoangles(enemy.position.minus(position));
+        const offang = M.vectoangles(enemy.position.minus(position));
         offang.y += offset * 6;
 
-        const v = Vec.makevectors(offang);
+        const v = M.makevectors(offang);
 
         const org = position.plus(root.mins).plus(root.size.times(0.5)).plus(v.forward.times(0.2));
 

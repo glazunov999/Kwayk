@@ -10,7 +10,6 @@ qt6_add_qml_module(kwayk
         js/easing.js
         js/keys.js
         js/math.js
-        js/vec.js
     RESOURCE_PREFIX "/"
 )
 

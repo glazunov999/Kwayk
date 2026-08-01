@@ -117,20 +117,16 @@ Monster {
     th_melee: dog_atta1
     th_missile: dog_leap1
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/dog.mdl"
-            skin.source: "qrc:/Assets/progs/skins/dog.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/dog.mdl"
+        skin.source: "qrc:/Assets/progs/skins/dog.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_dog.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_dog.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_dog.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_dog.png"
+        active: false
     }
 
     Sound {

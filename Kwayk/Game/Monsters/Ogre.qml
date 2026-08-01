@@ -190,20 +190,16 @@ Monster {
     th_pain: ogre_pain
     th_die: ogre_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/ogre.mdl"
-            skin.source: "qrc:/Assets/progs/skins/ogre.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/ogre.mdl"
+        skin.source: "qrc:/Assets/progs/skins/ogre.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_ogre.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_ogre.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_ogre.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_ogre.png"
+        active: false
     }
 
     Sound {

@@ -63,20 +63,16 @@ Monster {
     th_pain: shalrath_pain
     th_die: shalrath_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/shalrath.mdl"
-            skin.source: "qrc:/Assets/progs/skins/shalrath.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/shalrath.mdl"
+        skin.source: "qrc:/Assets/progs/skins/shalrath.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_shal.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_shal.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_shal.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_shal.png"
+        active: false
     }
 
     Sound {

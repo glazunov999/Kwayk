@@ -27,20 +27,16 @@ Monster {
     th_pain: zombie_pain
     th_die: zombie_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/zombie.mdl"
-            skin.source: "qrc:/Assets/progs/skins/zombie.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/zombie.mdl"
+        skin.source: "qrc:/Assets/progs/skins/zombie.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_zombie.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_zombie.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_zombie.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_zombie.png"
+        active: false
     }
 
     Sound {

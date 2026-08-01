@@ -99,20 +99,16 @@ Monster {
     th_pain: demon1_pain
     th_die: demon_die
 
-    modelComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/demon.mdl"
-            skin.source: "qrc:/Assets/progs/skins/demon.png"
-            frame: th.frame
-        }
+    modelComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/demon.mdl"
+        skin.source: "qrc:/Assets/progs/skins/demon.png"
+        frame: th.frame
     }
 
-    headComponent: Component {
-        Alias {
-            mdl.source: "qrc:/Assets/progs/h_demon.mdl"
-            skin.source: "qrc:/Assets/progs/skins/h_demon.png"
-            active: false
-        }
+    headComponent: Alias {
+        mdl.source: "qrc:/Assets/progs/h_demon.mdl"
+        skin.source: "qrc:/Assets/progs/skins/h_demon.png"
+        active: false
     }
 
     Sound {
